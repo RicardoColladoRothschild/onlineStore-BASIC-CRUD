@@ -30,4 +30,16 @@ body {
   display: grid;
   place-items: center;
   justify-content: center;
+  background-color: #1b3358;
+}
+
+.main-container-userlogin {
+  width: 375px;
+  height: 450px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  background-color: #473e66;
+  border-radius: 28px;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
 }
