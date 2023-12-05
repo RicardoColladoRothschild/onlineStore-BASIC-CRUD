@@ -1,0 +1,14 @@
+# Ignorar carpetas creadas por Node.js
+node_modules/
+
+# Ignorar el archivo de configuración de TypeScript
+tsconfig.json
+
+# Ignorar archivos de compilación de TypeScript (si tienes una carpeta 'dist' o similar)
+dist/
+
+# Ignorar archivos de registro de errores de TypeScript
+*.log
+
+# Ignorar cualquier archivo .env que puedas tener para configuración local
+.env
