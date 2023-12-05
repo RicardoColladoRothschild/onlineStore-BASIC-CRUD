@@ -3,7 +3,7 @@ import * as sqlite3 from 'sqlite3';
 
 const app = express();
 const port = 3000;
-const dbPath = '../Proyecto_Practica_CRUD_dataBase.db';
+const dbPath = './database/Proyecto_Practica_CRUD_dataBase.db';
 
 const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err)=>{
     if(err){
