@@ -71,3 +71,14 @@ body {
   width: 210px;
   padding: 3px;
 }
+.main-container-userlogin .login-container--info button {
+  width: 100px;
+  height: 41px;
+  place-self: center;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  color: #1b3358;
+  background-color: #F5D7DB;
+  font-weight: 500;
+}

@@ -69,6 +69,18 @@ body{
                 width:210px;
                 padding:3px;
             }
+
+            button{
+                width:100px;
+                height:41px;
+                place-self: center;
+                border:none;
+                border-radius:10px;
+                font-size:1.4rem;
+                color:$primary-color;
+                background-color: $letters-color;
+                font-weight:500;
+            }
     }
 
 }
