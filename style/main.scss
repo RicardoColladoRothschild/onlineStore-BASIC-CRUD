@@ -80,6 +80,11 @@ body{
                 color:$primary-color;
                 background-color: $letters-color;
                 font-weight:500;
+                &:hover{
+                    background-color:$secondry-color;
+                    color:$letters-color;
+                    cursor:pointer;
+                }
             }
     }
 

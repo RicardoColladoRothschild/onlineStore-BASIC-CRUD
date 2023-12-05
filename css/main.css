@@ -82,3 +82,8 @@ body {
   background-color: #F5D7DB;
   font-weight: 500;
 }
+.main-container-userlogin .login-container--info button:hover {
+  background-color: #06142E;
+  color: #F5D7DB;
+  cursor: pointer;
+}
