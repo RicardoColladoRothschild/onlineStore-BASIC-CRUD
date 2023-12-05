@@ -4,6 +4,7 @@
   "description": "This project is build to practice backend and frontend. I use a basic CRUD, where an user is able to purchase a product, and/or send it to a cart.  Product in cart can be buy by the user, using a prestablish credit available for every new user,  that is deducted every time a suer consume a product.",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node src/main.ts"
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
