@@ -30,7 +30,7 @@ const express_1 = __importDefault(require("express"));
 const sqlite3 = __importStar(require("sqlite3"));
 const app = (0, express_1.default)();
 const port = 3000;
-const dbPath = './database/Proyecto_Practica_CRUD_dataBase.db';
+const dbPath = '../database/Proyecto_Practica_CRUD_dataBase.db';
 const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
     if (err) {
         console.error(err.message);
