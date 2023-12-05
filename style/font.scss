@@ -1,0 +1,22 @@
+$font-map:(
+    'font1-light':(
+        'font-family':'Poppins-Light',
+        'font-src':url('../font/Poppins-Light.ttf') format('truetype'),
+        'font-weight':300,
+        
+    ),
+    'font1-bold':(
+        'font-family':'Poppins-bold',
+        'font-src':url('../font/Poppins-Bold.ttf') format('truetype'),
+        'font-weight':600,
+    ),
+);
+
+@each $font-name, $font-properties in $font-map {
+    @font-face {
+      font-family: map-get($font-properties, 'font-family');
+      src: map-get($font-properties, 'font-src');
+      font-weight: map-get($font-properties, 'font-weight');
+      
+    }
+  }
