@@ -22,8 +22,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
 const sqlite3 = __importStar(require("sqlite3"));
+const app = (0, express_1.default)();
+const port = 3000;
 const dbPath = '../Proyecto_Practica_CRUD_dataBase.db';
 const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
     if (err) {
@@ -33,21 +39,26 @@ const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
         console.log('conectado a la data base: ' + dbPath);
     }
 });
-const query = 'SELECT * FROM products';
-db.all(query, [], (error, rows) => {
-    if (error) {
-        console.log(error.message);
-    }
-    else {
-        console.log('Resultado consulta:');
-        console.log(rows);
-    }
-    db.close((err) => {
-        if (err) {
-            console.error(err.message);
+app.get('/obtener-data', (req, res) => {
+    const query = 'SELECT * FROM products';
+    db.all(query, [], (error, rows) => {
+        if (error) {
+            console.log(error.message);
         }
         else {
-            console.log('Conexión cerrada');
+            console.log('Resultado consulta:');
+            console.log(rows);
         }
+        db.close((err) => {
+            if (err) {
+                console.error(err.message);
+            }
+            else {
+                console.log('Conexión cerrada');
+            }
+        });
     });
+});
+app.listen(port, () => {
+    console.log('servidor iniciado en: http://localhost:' + port);
 });
