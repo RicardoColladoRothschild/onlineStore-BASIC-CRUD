@@ -40,16 +40,23 @@ const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
         console.log('conectado a la data base: ' + dbPath);
     }
 });
-app.use((0, cors_1.default)());
-app.get('/obtener-data', (req, res) => {
+const corsOptions = {
+    origin: 'http://localhost:5500',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+};
+app.use((0, cors_1.default)(corsOptions));
+app.get('/obtener-datos', (req, res) => {
     const query = 'SELECT * FROM products';
     db.all(query, [], (error, rows) => {
         if (error) {
             console.log(error.message);
+            res.status(500).json({ error: 'Error al obtener datos' });
         }
         else {
             console.log('Resultado consulta:');
-            console.log(rows);
+            //console.log(rows);
             res.json(rows);
         }
         db.close((err) => {
