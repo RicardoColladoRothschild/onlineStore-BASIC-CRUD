@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express, { Request, Response } from 'express';
 import * as sqlite3 from 'sqlite3';
 
@@ -12,7 +13,7 @@ const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err)=>{
         console.log('conectado a la data base: ' + dbPath);
     }
 });
-
+app.use(cors());
 app.get('/obtener-data', (req:Request, res:Response)=>{
     const query = 'SELECT * FROM products';
 
@@ -22,6 +23,7 @@ db.all(query, [], (error,rows)=>{
     }else{
         console.log('Resultado consulta:');
         console.log(rows);
+        res.json(rows);
     }
     db.close((err)=>{
         if (err) {
