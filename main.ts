@@ -7,13 +7,7 @@ const port = 3000;
 
 const dbPath = '../database/Proyecto_Practica_CRUD_dataBase.db';
 
-const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err)=>{
-    if(err){
-        console.error(err.message);
-    }else{
-        console.log('conectado a la data base: ' + dbPath);
-    }
-});
+
 const corsOptions = {
     origin: 'http://localhost:5500', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -21,7 +15,17 @@ const corsOptions = {
     optionsSuccessStatus: 204,
 };
 app.use(cors(corsOptions));
+
 app.get('/obtener-datos', (req:Request, res:Response)=>{
+
+    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err)=>{
+        if(err){
+            console.error(err.message);
+        }else{
+            console.log('conectado a la data base: ' + dbPath);
+        }
+    });
+
     const query = 'SELECT * FROM products';
 
 db.all(query, [], (error,rows)=>{
