@@ -1,10 +1,9 @@
 import cors from 'cors';
 import express, { Request, Response } from 'express';
-import * as sqlite3 from 'sqlite3';
-
+import { Productos } from './script/Productos.js';
 const app = express();
 const port = 3000;
-
+const producto = new Productos();
 const dbPath = '../database/Proyecto_Practica_CRUD_dataBase.db';
 
 
@@ -18,16 +17,10 @@ app.use(cors(corsOptions));
 
 app.get('/obtener-datos', (req:Request, res:Response)=>{
 
-    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err)=>{
-        if(err){
-            console.error(err.message);
-        }else{
-            console.log('conectado a la data base: ' + dbPath);
-        }
-    });
+                res.json();
 
-    const query = 'SELECT * FROM products';
-
+   
+/*
 db.all(query, [], (error,rows)=>{
     if(error){
         console.log(error.message);
@@ -38,14 +31,8 @@ db.all(query, [], (error,rows)=>{
         //console.log(rows);
         res.json(rows);
     }
-    db.close((err)=>{
-        if (err) {
-            console.error(err.message);
-          } else {
-            console.log('Conexión cerrada');
-          }
-    });
-});
+    
+});*/
 
 });
 
