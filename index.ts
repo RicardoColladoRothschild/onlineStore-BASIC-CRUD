@@ -5,6 +5,7 @@ const btn_acceder = document.querySelector('#acceder');
 async function requestAccess(){
     const response = await fetch('http://localhost:3000/obtener-datos');
     if(!response.ok){
+        console.log(response.status);
         throw new Error('Error en la socilitud: ' + response.status);
     }
 
