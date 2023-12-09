@@ -42,6 +42,7 @@ db.all(query, [], (error,rows)=>{
           }
     });
 });
+
 });
 
 app.listen(port, ()=>{
