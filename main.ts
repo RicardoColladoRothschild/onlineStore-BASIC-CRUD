@@ -16,8 +16,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.get('/obtener-datos', (req:Request, res:Response)=>{
-
-                res.json();
+                const rows = producto.allProductsReturn();
+                res.json(rows);
 
    
 /*
