@@ -9,3 +9,9 @@ that is deducted every time a suer consume a product.
 First thing user see is a login view, where needs to put information, that information is requested to the backend, if
 it match any previous data, it will go to the next page. 
 
+## Backend
+The backend directory holds all of the backend functionality:
+* Server
+* data base management
+* clases
+* handle events and others
