@@ -1,5 +1,5 @@
-
 import express, { Request, Response } from 'express';
+import path from 'path';
 import { Productos } from './Productos';
 const app = express();
 const PORT = 3000;
@@ -10,11 +10,11 @@ app.use(express.json());
 
 //return website:
 
-app.get('/', (request: Request, response: Response)=>{
-
+app.get('/index', (request: Request, response: Response)=>{
+            const indexPath = path.join(__dirname, '../index.html');
         response
             .status(200)
-            .sendFile('../index.html');
+            .sendFile(indexPath);
 });
 
 
