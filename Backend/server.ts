@@ -1,19 +1,23 @@
-import cors from 'cors';
+
 import express, { Request, Response } from 'express';
 import { Productos } from './Productos';
 const app = express();
-const port = 3000;
+const PORT = 3000;
 const producto = new Productos();
 const dbPath = '../database/Proyecto_Practica_CRUD_dataBase.db';
 
+app.use(express.json());
 
-const corsOptions = {
-    origin: 'http://localhost:5500', 
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, 
-    optionsSuccessStatus: 204,
-};
-app.use(cors(corsOptions));
+//return website:
+
+app.get('/', (request: Request, response: Response)=>{
+
+        response
+            .status(200)
+            .sendFile('../index.html');
+});
+
+
 
 app.get('/obtener-datos', (req:Request, res:Response)=>{
                 const rows = producto.allProductsReturn();
@@ -36,6 +40,6 @@ db.all(query, [], (error,rows)=>{
 
 });
 
-app.listen(port, ()=>{
-    console.log('servidor iniciado en: http://localhost:'+port);
+app.listen(PORT, ()=>{
+    console.log(`Server running on: http://localhost:${PORT}`);
 })

@@ -1,6 +1,6 @@
 import cors from 'cors';
 import express, { Request, Response } from 'express';
-import { Productos } from './Productos';
+import { Productos } from '../script/Productos';
 const app = express();
 const port = 3000;
 const producto = new Productos();
