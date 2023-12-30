@@ -10,35 +10,35 @@ export class Productos{
             this.product_price = "0";
         }
 
-        allProductsReturn(){
-            let data:any;
-            const db = new sqlite3.Database(this.dbPath, sqlite3.OPEN_READONLY, (err)=>{
-                if(err){
-                    console.error(err.message);
-                }else{
-                    console.log('conectado a la data base: ' + this.dbPath);
-                }
-            });
-
-            const query = 'SELECT * FROM products';
-
-            db.all(query, [], (error,rows)=>{
-                    if(error){
-                        console.log(error.message);
-                        data = error;
+        async allProductsReturn() {
+            return new Promise<any>((resolve, reject) => {
+                const db = new sqlite3.Database(this.dbPath, sqlite3.OPEN_READONLY, (err) => {
+                    if (err) {
+                        console.error(err.message);
+                        reject(err);
+                    } else {
+                        console.log('Conectado a la base de datos: ' + this.dbPath);
                     }
-
-                    data = rows;
-
-
-                 db.close((err)=>{
-                if (err) {
-                 console.error(err.message);
-                 } else {
-                    console.log('Conexión cerrada | Request was complete to DB');
-                 }
-                 });
+                });
+    
+                const query = 'SELECT * FROM products';
+    
+                db.all(query, [], (error, rows) => {
+                    if (error) {
+                        console.log(error.message);
+                        reject(error);
+                    }
+    
+                    resolve(rows);
+    
+                    db.close((err) => {
+                        if (err) {
+                            console.error(err.message);
+                        } else {
+                            console.log('Conexión cerrada | Request was complete to DB');
+                        }
+                    });
+                });
             });
-            return data;
         }
 }

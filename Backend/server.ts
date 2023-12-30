@@ -17,28 +17,15 @@ app.get('/index', (request: Request, response: Response)=>{
             .sendFile(indexPath);
 });
 
-
-
-app.get('/obtener-datos', (req:Request, res:Response)=>{
-                const rows = producto.allProductsReturn();
-                res.json(rows);
-
-   
-/*
-db.all(query, [], (error,rows)=>{
-    if(error){
-        console.log(error.message);
-        res.status(500).json({ error: 'Error al obtener datos' });
-
-    }else{
-        console.log('Resultado consulta:');
-        //console.log(rows);
-        res.json(rows);
-    }
+async function retrieveData(req:Request, res:Response){
+    const rows =  await producto.allProductsReturn();
+    console.log(rows);
+    res.json(rows);
     
-});*/
 
-});
+}
+
+app.get('/obtener-datos', retrieveData);
 
 app.listen(PORT, ()=>{
     console.log(`Server running on: http://localhost:${PORT}`);
