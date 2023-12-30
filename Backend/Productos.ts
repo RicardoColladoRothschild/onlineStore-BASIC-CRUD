@@ -1,9 +1,10 @@
+import path from 'path';
 import * as sqlite3 from 'sqlite3';
-
 export class Productos{
     private product_name:string;
     private product_price:string;
-    private  dbPath:string = '../database/Proyecto_Practica_CRUD_dataBase.db';
+    
+    private  dbPath:string = path.join(__dirname, '../database/Proyecto_Practica_CRUD_dataBase.db');
         constructor(){
             this.product_name = 'all';
             this.product_price = "0";
