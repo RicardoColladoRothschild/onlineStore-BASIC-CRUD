@@ -13,8 +13,5 @@ dist/
 # Ignorar cualquier archivo .env que puedas tener para configuración local
 .env
 
-# Ignorar carpeta de la base de datos
-/database/
-
 # Ignorar archivo de la base de datos
 Proyecto_Practica_CRUD_dataBase.db
