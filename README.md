@@ -26,3 +26,8 @@ The backend directory holds all of the backend functionality:
     *types/node
     These dependicies are necesary, because project was develop using typescript with node, and express.
 2) Once server is running, the initial web site, the index, should be locahost:PORT, being port the port that was assgined.     
+
+
+## Clase Login
+Our Login class will be an object,, that will hold user basic data from the current user that is login, this data, will be retreive from the data base, once a user login,
+this object will be access by the entire application. 
