@@ -11,7 +11,7 @@ export class Productos{
         }
 
         async allProductsReturn() {
-            return new Promise<any>((resolve, reject) => {
+            return new Promise((resolve, reject) => {
                 const db = new sqlite3.Database(this.dbPath, sqlite3.OPEN_READONLY, (err) => {
                     if (err) {
                         console.error(err.message);
