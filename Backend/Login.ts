@@ -29,3 +29,5 @@ class LoginUser{
             return this._age;
         }
 }
+
+export default LoginUser;
