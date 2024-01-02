@@ -16,6 +16,12 @@ export class ConfirmUser{
 
         isUserConfirmed(){
             const db_connection = new DataBaseConnection('SELECT * FROM products');
-            
+            console.log('Getting query....');
+            db_connection.getQuery();
+
         }
 }
+
+const user1 = new LoginUser('Ricardo', 34, 'ricardo@gmail.com0', 1025);
+let test = new ConfirmUser(user1);
+test.isUserConfirmed();

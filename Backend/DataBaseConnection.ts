@@ -17,13 +17,38 @@ export class DataBaseConnection{
                         console.error(err.message);
                         reject(err);
                     }else{
+                        
                         console.log('Connection was stablish');
+                        resolve(db);
                     }
                 });
                 
-                resolve(db)
+                
             });
             
+        }
+
+        set newQuery(newQuery:string){
+            this._query = newQuery;
+        }
+
+        async getQuery(){
+            this.createConnection()
+                .then((result:any)=>{
+                    result.all(this._query, [], (error:any, rows:any)=>{
+                        if(error){
+                            console.log(error.message);
+                        }
+                        console.log(rows)
+                        result.close((err:any)=>{
+                            if (err) {
+                                console.error(err.message);
+                            } else {
+                                console.log('Conexión cerrada | Request was complete to DB');
+                            }
+                        });
+                    });
+                })
         }
 
 }
