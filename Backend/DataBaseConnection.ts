@@ -39,7 +39,8 @@ export class DataBaseConnection{
                         if(error){
                             console.log(error.message);
                         }
-                        console.log(rows)
+                        //console.log(rows)
+                        return rows;
                         result.close((err:any)=>{
                             if (err) {
                                 console.error(err.message);
