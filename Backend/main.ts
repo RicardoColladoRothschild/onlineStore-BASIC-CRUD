@@ -1,3 +1,5 @@
+//THIS CODE IS NOT LONGER IN USE, JUST KEPT HERE AS REFERENCE.
+
 import cors from 'cors';
 import express, { Request, Response } from 'express';
 import { Productos } from '../script/Productos';

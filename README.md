@@ -31,3 +31,16 @@ The backend directory holds all of the backend functionality:
 ## Clase Login
 Our Login class will be an object,, that will hold user basic data from the current user that is login, this data, will be retreive from the data base, once a user login,
 this object will be access by the entire application. 
+
+
+## ConfirmUser class specs:
+
+Confirm User
+Esta clase es la que hace el request a la base de datos, hace un query, para
+buscar un match de un nombre de usuario, y un email identico, una vez
+que los encuentra, esta clase, debe usar un "bycrypt" y verificar si el hash guardado en la
+base de datos para ese usuario, coincide con el hash que podria haber generado la password
+que se creo al crear el objeto user al que dicho usuario pertenece. 
+
+This calss receive a "login" object and use it password, email and name to confirm if data base info match, if it does, it create
+ a new object: User logged, which will contain current user order, credit, configuration
