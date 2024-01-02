@@ -33,6 +33,7 @@ export class DataBaseConnection{
         }
 
         async getQuery(){
+            let response;
             this.createConnection()
                 .then((result:any)=>{
                     result.all(this._query, [], (error:any, rows:any)=>{
@@ -40,7 +41,7 @@ export class DataBaseConnection{
                             console.log(error.message);
                         }
                         //console.log(rows)
-                        return rows;
+                        response = rows;
                         result.close((err:any)=>{
                             if (err) {
                                 console.error(err.message);
@@ -49,7 +50,8 @@ export class DataBaseConnection{
                             }
                         });
                     });
-                })
+                });
+                return response;
         }
 
 }
