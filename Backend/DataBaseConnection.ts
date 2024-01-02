@@ -6,7 +6,9 @@ export class DataBaseConnection{
 
         constructor(query:string){
             this._query = query;
-            this.createConnection();
+            this.createConnection()
+                .then(resolve=>console.log(resolve))
+                .catch(error=>console.log(error));
         }
 
         async createConnection(){
