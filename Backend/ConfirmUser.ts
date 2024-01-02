@@ -2,19 +2,20 @@
  * a new object: User logged, which will contain current user order, credit, configuration
  */
 
+import { DataBaseConnection } from './DataBaseConnection';
 import LoginUser from './LoginUser';
-
-//const db_connection = new DataBaseConnection('SELECT * FROM products');
+//
 
 export class ConfirmUser{
     private _user:LoginUser;
-
+    
         constructor(user:LoginUser){
             this._user = user;
             
         }
 
         isUserConfirmed(){
+            const db_connection = new DataBaseConnection('SELECT * FROM products');
             
         }
 }
